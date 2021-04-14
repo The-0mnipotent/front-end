@@ -578,17 +578,15 @@
                         </div>-->
 			 <div class="mt-4 mb-2">
                             <label class="btn btn-light" for="file">
-                                Browse
+                               <button class="btn btn-secondary"> Browse <button>
                                 <input type="file" class="form-control" style="display:none" onchange="$('#filename').text(this.files[0].name)" id="file" required>
                             </label>
                             <span class='label' id="filename"></span>
                         </div>
 			   <br>
-                        <!--<b>Enter OTP Sent To Your JNU Email Address</b>
-						<br>-->
                         <div class="mb-4 col-6 offset-3">
                             <input type="password" class="form-control" placeholder="&#xf084; OTP" style="font-family: FontAwesome" required>
-			    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			    <small id="emailHelp" class="form-text text-muted">Enter OTP Sent To Your JNU Email Address.</small>
                         </div>
                         <button type="submit" class="btn btn-dark">Upload !</button>
                     </form>
