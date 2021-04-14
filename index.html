@@ -520,7 +520,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-				<h4>Enter your JNU Email to contribute to library :</h4>
+				<h6>Enter your JNU Email to contribute to library :</h6>
                     <form>
                         <div class="input-group mb-4">
                             <span class="input-group-text"><i class="far fa-envelope"></i></span>
@@ -572,15 +572,23 @@
                             <textarea class="form-control" placeholder="Resource's Description"></textarea>
                         </div>
                         <hr>
-						<div class="input-group mb-2">
+			<!--<div class="input-group mb-2">
                             <span class="input-group-text">Add file&nbsp;<font color="red">*</font></span>
                             <input type="file" accept=".png,.zip,.pdf" class="form-control" required>
+                        </div>-->
+			 <div class="mt-4 mb-2">
+                            <label class="btn btn-light" for="file">
+                                Browse
+                                <input type="file" class="form-control" style="display:none" onchange="$('#filename').text(this.files[0].name)" id="file" required>
+                            </label>
+                            <span class='label' id="filename"></span>
                         </div>
-			    <br>
-                        <b>Enter OTP Sent To Your JNU Email Address</b>
-						<br>
+			   <br>
+                        <!--<b>Enter OTP Sent To Your JNU Email Address</b>
+						<br>-->
                         <div class="mb-4 col-6 offset-3">
                             <input type="password" class="form-control" placeholder="&#xf084; OTP" style="font-family: FontAwesome" required>
+			    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <button type="submit" class="btn btn-dark">Upload !</button>
                     </form>
