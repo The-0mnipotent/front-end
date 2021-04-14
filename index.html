@@ -520,9 +520,35 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-				<h3><b><u>ADD</u> <u>FILE</u></b></h3>
+				<h4>Enter your JNU Email to contribute to library :</h4>
                     <form>
-                        <div class="input-group mt-4 mb-2">
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                            <input type="text" class="form-control" placeholder="E-Mail">
+                            <span class="input-group-text">_soe@jnu.ac.in</span>
+                        </div>
+                        <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#add2" data-bs-dismiss="modal">Proceed <i class="fas fa-chevron-circle-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <style>
+            textarea{ 
+                width: 100%;
+                height: 128px;
+                resize: none;
+            }
+        </style>
+    </div>
+
+    <!-- Modal: Add File (contd...) -->
+    <div class="modal" id="add2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="align-items-center">
+			 <h4>Details</h4>
+			 <div class="input-group mt-4 mb-2">
                             <span class="input-group-text">Title&nbsp;<font color="red">*</font></span>
                             <input type="text" class="form-control" required>
                         </div>
@@ -550,31 +576,7 @@
                             <span class="input-group-text">Add file&nbsp;<font color="red">*</font></span>
                             <input type="file" accept=".png,.zip,.pdf" class="form-control" required>
                         </div>
-                        <div class="input-group mb-4">
-                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                            <input type="text" class="form-control" placeholder="E-Mail">
-                            <span class="input-group-text">_soe@jnu.ac.in</span>
-                        </div>
-                        <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#add2" data-bs-dismiss="modal">Proceed <i class="fas fa-chevron-circle-right"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <style>
-            textarea{ 
-                width: 100%;
-                height: 128px;
-                resize: none;
-            }
-        </style>
-    </div>
-
-    <!-- Modal: Add File (contd...) -->
-    <div class="modal" id="add2">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form class="align-items-center">
+			    <br>
                         <b>Enter OTP Sent To Your JNU Email Address</b>
 						<br>
                         <div class="mb-4 col-6 offset-3">
@@ -592,9 +594,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-				<h3><b><u>DELETE</u> <u>FILE</u></b></h3>
+				<h3><b>Delete File</b></h3>
                     <form>
-                        <div class="mt-4 mb-2 col-6 offset-3">
+                        <div class="mt-4 mb-2">
                             <input type="number" class="form-control" placeholder="Resource ID" required>
                         </div>
                         <div class="mb-4">
@@ -612,7 +614,6 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-				<h3><b><u>ABOUT</u> <u>US</u></b></h3>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas incidunt sapiente sed quaerat nulla reprehenderit accusantium asperiores, maxime reiciendis facilis, adipisci qui doloremque ea iusto earum excepturi modi omnis explicabo?
                     <br>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum quos delectus nihil non a expedita rem magnam ab ducimus perspiciatis praesentium, sapiente corporis fugiat ea suscipit quod! Laborum, provident cum.
@@ -628,7 +629,6 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-				<h3><b><u>MEET</u> <u>US</u></b></h3>
                     <div class="row align-items-center p-2">
                         <div class="col-9">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde sequi, corporis exercitationem rem vel ullam dolorum eum totam quod, beatae dolor obcaecati harum dignissimos sapiente nesciunt tempore sunt consectetur.
@@ -674,7 +674,8 @@
         </div>
         <style>
             .modal img{
-                width: 120px;
+                width: 80px;
+		height: 80px;
                 border-radius: 25%;
             }
         </style>
