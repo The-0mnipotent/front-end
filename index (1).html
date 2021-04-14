@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <link rel="icon" href="favicon.png">
+    <title>JNU-SE · Open Resource Library</title>
+    <meta name="description" content="Welcome to JNU-SE's Open Resource Library!">
+
+    <meta name="google-site-verification" content="t4jF2ZYW_Hx6A0BGVlQs2GnDm1qEr7GXBjYtdlGTPxs" />
+
+    <!-- Bootstrap v5.0.0-beta-3 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- jQuery v3.6.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome v5.15.3 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e241333cb5.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+
+    body{
+        color: #121212;
+        background-color: #f8f8ff;
+        user-select: none;
+    }
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    });
+</script>
+
+<body class="d-flex flex-column min-vh-100 text-center">
+
+    <!-- Header -->
+    <div class="header container-fluid pt-4">
+        <h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg/1200px-Jawaharlal_Nehru_University_Logo_vectorized.svg.png" width="60px" height="70px">&nbsp JNU-<b>SE</b>
+        </h1>
+        <h2>
+            Open Resource Library
+        </h2>
+        <style>
+            .header{
+                color: #1d1f5a;
+            }
+            .header h1{
+                font-size: 3.0em;
+            }
+            .header h2{
+                font-size: 1.8em;
+            }
+        </style>
+    </div>
+
+    <!-- Service -->
+    <div class="service container-fluid pt-4 pb-2">
+        <li style="width: 50%;">
+            <input type="search" class="form-control" placeholder="&#xf002; Search..." />
+        </li>
+        <li>
+            <a class="btn" data-bs-toggle="modal" data-bs-target="#add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </li>
+        <li>
+            <a class="btn" data-bs-toggle="modal" data-bs-target="#delete">
+                <i class="fas fa-minus"></i>
+            </a>
+        </li>
+        <style>
+            .service li{
+                display: inline-block;
+            }
+            .service input{
+                border-radius: 24px;
+                font-family: FontAwesome;
+            }
+            .service .fa-plus, .fa-minus{
+                font-size: 24px;
+            }
+        </style>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content container-fluid table-responsive pt-4">
+        <table class="table table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">
+                        # <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col">
+                        Title <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col">
+                        Author <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col">
+                        Year <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col">
+                        Semester <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col">
+                        Field <i class="fas fa-sort" />
+                    </th>
+                    <th scope="col" />
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+				                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed et esse aspernatur, nobis fugit? Cumque sapiente distinctio amet magnam quae commodi quidem unde. Totam sunt iure illo! Molestias, architecto." download="">
+                            History Notes
+                        </a>
+                    </td>
+                    <td>John Doe</td>
+                    <td>2019</td>
+                    <td>I-Common</td>
+                    <td>Humanities</td>
+                    <td>
+                        <i class="fas fa-file-pdf"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="" download="">
+                            OR Logic Gate Circuit
+                        </a>
+                    </td>
+                    <td>Jane Learner</td>
+                    <td>2020</td>
+                    <td>III-ECE</td>
+                    <td></td>
+                    <td>
+                        <i class="fas fa-file-image"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="This is a sample lipsum" download="">
+                            Python3 Practice Problems
+                        </a>
+                    </td>
+                    <td>James Carrot</td>
+                    <td>2021</td>
+                    <td>II-CSE</td>
+                    <td>Computer Programming</td>
+                    <td>
+                        <i class="fas fa-file-archive"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <style>
+            .content{
+                font-size: 12px;
+            }
+            .content a{
+                color: #1d1f5a;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .content .fa-file-pdf, .fa-file-image, .fa-file-archive{
+                font-size: 24px;
+            }
+            .content .fa-file-pdf{
+                color: #db4437;
+            }
+            .content .fa-file-image{
+                color: #4285f4;
+            }
+            .content .fa-file-archive{
+                color: #f4b400;
+            }
+        </style>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer container-fluid mt-auto pt-2 pb-1">
+        <li>
+            <a data-bs-toggle="modal" data-bs-target="#about">About</a>
+        </li> 
+        <li>
+            <a href="https://jnu.ac.in/se" target="_blank">
+                JNU<b>SE</b>
+            </a>
+        </li> 
+        <li>
+            <a data-bs-toggle="modal" data-bs-target="#team">Team</a>
+        </li>
+        <style>
+            .footer{
+                color: #e5e4e2;
+                background-color: #1d1f5a;
+            }
+            .footer li{
+                display: inline-block;
+                padding: 0 64px 0 64px;
+            }
+            .footer a{
+                color: inherit;
+                text-decoration: none;
+            }
+        </style>
+    </div>
+
+    <!-- Modal: Add File -->
+    <div class="modal fade" id="add">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+				<h3><b><u>ADD</u> <u>FILE</u></b></h3>
+                    <form>
+                        <div class="input-group mt-4 mb-2">
+                            <span class="input-group-text">Title&nbsp;<font color="red">*</font></span>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Author</span>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Year&nbsp;<font color="red">*</font></span>
+                            <input type="number" class="form-control" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Semester&nbsp;<font color="red">*</font></span>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Field</span>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <textarea class="form-control" placeholder="Resource's Description"></textarea>
+                        </div>
+                        <hr>
+						<div class="input-group mb-2">
+                            <span class="input-group-text">Add file&nbsp;<font color="red">*</font></span>
+                            <input type="file" accept=".png,.zip,.pdf" class="form-control" required>
+                        </div>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                            <input type="text" class="form-control" placeholder="E-Mail">
+                            <span class="input-group-text">_soe@jnu.ac.in</span>
+                        </div>
+                        <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#add2" data-bs-dismiss="modal">Proceed <i class="fas fa-chevron-circle-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <style>
+            textarea{ 
+                width: 100%;
+                height: 128px;
+                resize: none;
+            }
+        </style>
+    </div>
+
+    <!-- Modal: Add File (contd...) -->
+    <div class="modal" id="add2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="align-items-center">
+                        <b>Enter OTP Sent To Your JNU Email Address</b>
+						<br>
+                        <div class="mb-4 col-6 offset-3">
+                            <input type="password" class="form-control" placeholder="&#xf084; OTP" style="font-family: FontAwesome" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Upload !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Delete File -->
+    <div class="modal fade" id="delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+				<h3><b><u>DELETE</u> <u>FILE</u></b></h3>
+                    <form>
+                        <div class="mt-4 mb-2 col-6 offset-3">
+                            <input type="number" class="form-control" placeholder="Resource ID" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" class="form-control" placeholder="&#xf084; Key" style="font-family: FontAwesome" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Delete !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: About -->
+    <div class="modal fade" id="about">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+				<h3><b><u>ABOUT</u> <u>US</u></b></h3>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas incidunt sapiente sed quaerat nulla reprehenderit accusantium asperiores, maxime reiciendis facilis, adipisci qui doloremque ea iusto earum excepturi modi omnis explicabo?
+                    <br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum quos delectus nihil non a expedita rem magnam ab ducimus perspiciatis praesentium, sapiente corporis fugiat ea suscipit quod! Laborum, provident cum.
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dignissimos modi labore! Iusto vero temporibus earum velit veniam necessitatibus nisi magni, nesciunt voluptas itaque ullam vitae, corrupti perspiciatis, soluta architecto!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Meet the Team -->
+    <div class="modal fade" id="team">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+				<h3><b><u>MEET</u> <u>US</u></b></h3>
+                    <div class="row align-items-center p-2">
+                        <div class="col-9">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde sequi, corporis exercitationem rem vel ullam dolorum eum totam quod, beatae dolor obcaecati harum dignissimos sapiente nesciunt tempore sunt consectetur.
+                        </div>
+                        <div class="col-3">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png">
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-2">
+                        <div class="col-3">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png">
+                        </div>
+                        <div class="col-9">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, facere maiores quod voluptate saepe sapiente unde porro dolores reiciendis nihil explicabo id necessitatibus ratione nesciunt voluptatum perferendis esse voluptatibus consequuntur!
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-2">
+                        <div class="col-9">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae reiciendis labore dolorem, quis molestias corporis voluptates tenetur facilis suscipit fuga facere voluptatum. Praesentium, repellendus! Labore illo sint hic aliquam cum.
+                        </div>
+                        <div class="col-3">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png">
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-2">
+                        <div class="col-3">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png">
+                        </div>
+                        <div class="col-9">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima incidunt commodi alias tempore voluptates. Consequuntur ut, vero omnis quo cupiditate eius fugiat quasi corrupti placeat sequi, at est, deserunt sapiente.
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-2">
+                        <div class="col-9">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos deserunt maiores nihil deleniti magnam quam consectetur nostrum quis nulla ipsum amet esse at quod, sed praesentium rem corporis quas corrupti.
+                        </div>
+                        <div class="col-3">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .modal img{
+                width: 120px;
+                border-radius: 25%;
+            }
+        </style>
+    </div>
+
+</body>
+
+</html>
