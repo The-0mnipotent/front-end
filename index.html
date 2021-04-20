@@ -568,8 +568,8 @@
                             <span class="input-group-text">Field</span>
                             <input type="text" class="form-control">
                         </div>
-                        <div class="mb-2">
-                            <textarea class="form-control" placeholder="Resource's Description" oninvalid="alert('Must contain 6 or more characters');" pattern=".{512,}"></textarea>
+                        <div class="mb-2" id="testing-counter">
+                            <textarea class="form-control" placeholder="Resource's Description"></textarea>
                         </div>
                         <hr>
 			    <br>
@@ -676,6 +676,36 @@
                 border-radius: 25%;
             }
         </style>
+	    
+	<!--description counter-->
+	<script>
+    jQuery(function ($) {
+        var $counter = $('<div class="character-counter">'),
+            limit = 200;
+ 
+        // Get the textarea field
+        $('testing-counter')
+ 
+        // Add the counter after it
+        .after($counter)
+ 
+        // Bind the counter function on keyup and blur events
+        .bind('keyup blur', function () {
+            var length = $(this).val().length;
+ 
+            if (length > limit) {
+                // The value exceeds the limit, contain it
+                $(this).val($(this).val().substring(0, limit));
+            } else {
+                // Set the counter text
+                $counter.text(length + '/' + limit + ' characters');
+            }
+        })
+ 
+        // Trigger the counter on first load
+        .blur();
+    });
+    </script>
     </div>
 
 </body>
