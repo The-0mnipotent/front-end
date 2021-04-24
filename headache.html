@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<link rel="shortcut icon" type="image/png" href="favicon.png" />
+<title>JNU-SE · Open Resource Library</title>
+<meta name="description" content="Welcome to JNU-SE's Open Resource Library!" />
+<meta name="google-site-verification" content="t4jF2ZYW_Hx6A0BGVlQs2GnDm1qEr7GXBjYtdlGTPxs" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s" crossorigin="anonymous" />
+<script src="https://kit.fontawesome.com/e241333cb5.js" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+
+    body {
+        color: #121212;
+        background-color: #f8f8ff;
+        user-select: none;
+    }
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+    .header {
+        color: #1d1f5a;
+    }
+    .service li {
+        display: inline-block;
+    }
+    .service input {
+        border-radius: 24px;
+        font-family: FontAwesome;
+    }
+    .service .fa-minus,
+    .fa-plus,
+    .fa-key {
+        font-size: 24px;
+    }
+    .content {
+        font-size: 12px;
+    }
+    .content a {
+        color: #1d1f5a;
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .content .fa-file-pdf,
+    .fa-file-archive,
+    .fa-file-image {
+        font-size: 24px;
+    }
+    .content .fa-sort {
+        color: #fff;
+    }
+    .content .fa-file-pdf {
+        color: #db4437;
+    }
+    .content .fa-file-image {
+        color: #4285f4;
+    }
+    .content .fa-file-archive {
+        color: #f4b400;
+    }
+    .footer {
+        color: #e5e4e2;
+        background-color: #1d1f5a;
+    }
+    .footer li {
+        display: inline-block;
+        padding: 0 32px;
+    }
+    .footer a {
+        color: inherit;
+        text-decoration: none;
+    }
+    textarea {
+        width: 100%;
+        height: 128px;
+        resize: none;
+    }
+    .autocomplete {
+        position: relative;
+    }
+    .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        z-index: 2;
+        left: 0;
+        right: 0;
+    }
+    .autocomplete-items div {
+        padding: 8px;
+        cursor: pointer;
+        background-color: #fff;
+    }
+    .modal img {
+        width: 80px;
+        height: 80px;
+        border-radius: 25%;
+    }
+
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        for (var a in ["page", "sortBy", "orderBy", "keyword"])
+        decodeURI((RegExp(a + "=(.+?)(&|$)").exec(location.search) || [, null])[1]) && history.replaceState(null, document.getElementsByTagName("title")[0].innerHTML, window.location.pathname);
+        for (
+            var b,
+            c = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),
+            d = c.map(function (a) {
+                return new bootstrap.Tooltip(a);
+            }),
+            e = 2018;
+            e <= new Date().getFullYear();
+            e++
+        )
+        (b = document.createElement("option")), (b.value = e), (b.label = e), document.getElementById("year").appendChild(b);
+        $("#btnOTP").on("click", (a) => {
+            $("#spinnerOTP").removeClass("d-none"),
+            $("#btnOTP").attr("disabled", !0),
+            a.preventDefault(),
+            $.ajax({ url: $("#formOTP").attr("action"), type: "post", data: $("#formOTP").serialize() }).done(function () {
+                $("#add").show();
+            });
+        }),
+        $("#formOTP").on("keypress", (a) => 13 !== a.which),
+        autocomplete(document.getElementById("semester"), [
+        "I - CSE",
+        "I - ECE",
+        "I - Common",
+        "II - CSE",
+        "II - ECE",
+        "II - Common",
+        "III - CSE",
+        "III - ECE",
+        "III - Common",
+        "IV - CSE",
+        "IV - ECE",
+        "IV - Common",
+        "V - CSE",
+        "V - ECE",
+        "V - Common",
+        "VI - CSE",
+        "VI - ECE",
+        "VI - Common",
+        "VII - CSE",
+        "VII - ECE",
+        "VII - Common",
+        "VIII - CSE",
+        "VIII - ECE",
+        "VIII - Common",
+        "IX - CSE",
+        "IX - ECE",
+        "IX - Common",
+        "X - CSE",
+        "X - ECE",
+        "X- Common",
+        ]);
+    });
+    function counter() {
+        document.getElementById("desc").innerHTML = 300 - document.getElementById("descX").value.length;
+    }
+    function autocomplete(b, c) {
+        function d(b) {
+            return (
+            !!b &&
+            void (!(function (a) {
+                for (var b = 0; b < a.length; b++) a[b].classList.remove("autocomplete-active");
+            })(b),
+            a >= b.length && (a = 0),
+            0 > a && (a = b.length - 1),
+            b[a].classList.add("autocomplete-active"))
+            );
+        }
+        function f(a) {
+            for (var c = document.getElementsByClassName("autocomplete-items"), d = 0; d < c.length; d++) a != c[d] && a != b && c[d].parentNode.removeChild(c[d]);
+        }
+        var a;
+        b.addEventListener("input", function () {
+            var d,
+            e,
+            g,
+            h = this.value;
+            if ((f(), !h)) return !1;
+            for (a = -1, (d = document.createElement("DIV")).setAttribute("id", this.id + "autocomplete-list"), d.setAttribute("class", "autocomplete-items"), this.parentNode.appendChild(d), g = 0; g < c.length; g++)
+            c[g].substr(0, h.length).toUpperCase() == h.toUpperCase() &&
+            (((e = document.createElement("DIV")).innerHTML = "<strong>" + c[g].substr(0, h.length) + "</strong>"),
+            (e.innerHTML += c[g].substr(h.length)),
+            (e.innerHTML += "<input type='hidden' value='" + c[g] + "'>"),
+            e.addEventListener("click", function () {
+                (b.value = this.getElementsByTagName("input")[0].value), f();
+            }),
+            d.appendChild(e));
+        }),
+        b.addEventListener("keydown", function (b) {
+            var c = document.getElementById(this.id + "autocomplete-list");
+            c && (c = c.getElementsByTagName("div")), 40 == b.keyCode ? (a++, d(c)) : 38 == b.keyCode ? (a--, d(c)) : 13 == b.keyCode && (b.preventDefault(), -1 < a && c && c[a].click());
+        }),
+        document.addEventListener("click", function (a) {
+            f(a.target);
+        });
+    }
+
+</script>
+<body class="d-flex flex-column min-vh-100 text-center">
+
+<div class="header container-fluid pt-4">
+<h1>JNU<b>SE</b></h1>
+<h2>Open Resource Library</h2>
+</div>
+
+<div class="service container-fluid pt-4 pb-2">
+<li style="width: min(66.67%, 400px);">
+<form action="?pageNo=1&amp;sortBy=id&amp;orderBy=desc&amp;keyword=_">
+<input type="search" class="form-control" placeholder=" Search..." name="keyword" />
+</form>
+</li>
+<li>
+<a class="btn fas fa-key" data-bs-toggle="modal" data-bs-target="#otp"></a>
+</li>
+
+<li>
+<a class="btn fas fa-plus" data-bs-toggle="modal" data-bs-target="#add"></a>
+</li>
+
+<li>
+<a class="btn fas fa-minus" data-bs-toggle="modal" data-bs-target="#delete"></a>
+</li>
+<li>
+<span class="badge rounded-pill bg-dark">4  Resource(s) Found</span>
+</li>
+</div>
+
+<div class="content container-fluid table-responsive pt-4">
+<table class="table table-striped align-middle">
+<thead class="table-dark">
+<tr>
+<th scope="col">
+# <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=id&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col">
+Title <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=title&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col">
+Author <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=author&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col">
+Year <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=year&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col">
+Semester <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=semester&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col">
+Field <span style="padding-left: 1.25vw;"></span>
+<a class="fas fa-sort" href="?pageNo=1&amp;sortBy=field&amp;orderBy=desc&amp;keyword=_" />
+</th>
+<th scope="col" />
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2</th>
+<td>
+<a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="there and back again" download="Tanuj Raghav - Sample pdf [Sample] (2018, lib.jnuSE).pdf">Sample pdf</a>
+</td>
+<td>Tanuj Raghav</td>
+<td>2018</td>
+<td>I - CSE</td>
+<td>Sample</td>
+<td><i class="fas fa-file-pdf" /></td>
+</tr>
+<tr>
+<th scope="row">3</th>
+<td>
+<a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" download="Tanuj Raghav - Sample png [test] (2019, lib.jnuSE).png">Sample png</a>
+</td>
+<td>Tanuj Raghav</td>
+<td>2019</td>
+<td>II - ECE</td>
+<td>test</td>
+<td><i class="fas fa-file-image" /></td>
+</tr>
+<tr>
+<th scope="row">4</th>
+<td>
+<a href="https://google.com" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat vitae lectus a rhoncus. Praesent efficitur hendrerit ornare. Etiam a sapien id neque imperdiet interdum. Phasellus pulvinar nec felis et placerat. Morbi hendrerit nec purus eget finibus. Nulla id ornare ante. Pellentesque lorem " download="Tanuj Raghav - Sample Zip [Lorem Ipsum] (2021, lib.jnuSE).zip">Sample Zip</a>
+</td>
+<td>Tanuj Raghav</td>
+<td>2021</td>
+<td>III - Common</td>
+<td>Lorem Ipsum</td>
+<td><i class="fas fa-file-archive" /></td>
+</tr>
+<tr>
+<th scope="row">5</th>
+<td>
+<a href="kwnejdbfhvak.jl.z" data-bs-container="body" data-bs-offset="0,9" data-bs-toggle="tooltip" data-bs-placement="right" title="mdvfghjkaj," download="d ffJK VA - mdknfjvl [jofbhak] (2018, lib.jnuSE).png">mdknfjvl</a>
+</td>
+<td>d ffJK VA</td>
+<td>2018</td>
+<td>1ST</td>
+<td>jofbhak</td>
+<td><i class="fas fa-file-image" /></td>
+</tr>
+</tbody>
+</table>
+<nav>
+<ul class="pagination justify-content-center">
+<li class="page-item">
+</li>
+<li class="page-item">
+</li>
+<li class="page-item">
+<span class="page-link" style="font-weight: bold; color: #1d1f5a;">Page: 1 of 1</span>
+</li>
+<li class="page-item">
+</li>
+<li class="page-item">
+</li>
+</ul>
+</nav>
+</div>
+
+<div class="footer container-fluid mt-auto pt-2 pb-1">
+<li>
+<a data-bs-toggle="modal" data-bs-target="#about">About</a>
+</li>
+<li>
+<a href="https://jnu.ac.in/se" target="_blank"> JNU<b>SE</b> </a>
+</li>
+<li>
+<a data-bs-toggle="modal" data-bs-target="#team">Team</a>
+</li>
+</div>
+
+<div class="modal fade" id="otp">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body">
+<h6><i class="fas fa-info-circle"></i>&nbsp;Enter your JNU<b>SE</b> Email to contribute to library:</h6>
+<form action="/getOTP" method="post" id="formOTP">
+<div class="input-group mb-4">
+<span class="input-group-text"><i class="far fa-envelope"></i></span>
+<input type="text" class="form-control" placeholder="E-Mail" minlength="5" maxlength="8" name="email" value="" required />
+<span class="input-group-text"><span class="__cf_email__" data-cfemail="aaf5d9c5cfeac0c4df84cbc984c3c4">[email&#160;protected]</span></span>
+</div>
+<button type="submit" class="btn" id="btnOTP">
+<span class="d-none spinner-grow spinner-grow-sm" id="spinnerOTP"></span>
+&nbsp; Send OTP <i class="fas fa-chevron-circle-right"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal" id="add">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-body">
+ <form class="align-items-center" autocomplete="off" action="/save/" method="post">
+<h4>Details</h4>
+<div class="input-group mt-4 mb-2">
+<span class="input-group-text">Title&nbsp;<font color="red">*</font></span>
+<input type="text" class="form-control" maxlength="120" required id="title" name="title" value="" />
+</div>
+<div class="input-group mb-2">
+<span class="input-group-text">Author</span>
+<input type="text" class="form-control" maxlength="120" id="author" name="author" value="" />
+</div>
+<div class="input-group mb-2">
+<div class="col-4">
+<span class="input-group-text">Year&nbsp;<font color="red">*</font></span>
+<select name="year" class="form-select" id="year" onchange="year()" required></select>
+</div>
+<div class="col-8 autocomplete">
+<span class="input-group-text">Semester&nbsp;<font color="red">*</font></span>
+<input id="semester" type="text" class="form-control" required name="semester" value="" />
+</div>
+</div>
+<div class="input-group mb-2">
+<span class="input-group-text">Field</span>
+<input type="text" class="form-control" maxlength="60" id="field" name="field" value="" />
+</div>
+
+<div class="input-group mb-2">
+<span class="input-group-text">Extension</span>
+<input type="text" class="form-control" id="extension" name="extension" value="" />
+</div>
+<div class="input-group mb-2">
+<span class="input-group-text">URL</span>
+<input type="text" class="form-control" id="url" name="url" value="" />
+</div>
+<div class="input-group mb-2">
+<span class="input-group-text">Hash</span>
+<input type="text" class="form-control" id="hash" name="hash" value="" />
+</div>
+
+<div class="mb-2 text-end">
+<textarea class="form-control" onkeypress="counter();" id="descX" placeholder="Resource's Description" maxlength="300" name="description"></textarea>
+<span class="text-muted"><span id="desc">300</span>/300</span>
+</div>
+<hr />
+<div class="mb-4 col-8 offset-2">
+<input type="number" class="form-control" placeholder="&#xf084; OTP" style="font-family: FontAwesome;" maxlength="6" minlength="6" name="otp" value="" required />
+<small class="form-text text-muted">Please enter the OTP sent to your E-Mail</small>
+</div>
+<button type="submit" class="btn btn-dark">Upload !</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="delete">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body">
+<h4><b>Delete Resource File</b></h4>
+<form action="/delete" method="post">
+<div class="row mt-4 mb-4">
+<div class="col-3">
+<input type="number" class="form-control" placeholder="ID" name="id" value="" required />
+</div>
+<div class="col-9">
+<input type="password" class="form-control" placeholder="&#xf084; Key" style="font-family: FontAwesome;" minlength="64" maxlength="64" name="key" value="" required />
+</div>
+</div>
+<button type="submit" class="btn">Delete <i class="fas fa-trash"></i></button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="about">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+<div class="modal-body">
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum quos delectus nihil non a expedita rem magnam ab ducimus perspiciatis praesentium, sapiente corporis fugiat ea suscipit quod! Laborum, provident cum.
+<br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dignissimos modi labore! Iusto vero temporibus earum velit veniam necessitatibus nisi magni, nesciunt voluptas itaque ullam vitae, corrupti perspiciatis,
+soluta architecto!
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="team">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+<div class="modal-content">
+<div class="modal-body">
+<div class="row align-items-center p-1">
+<div class="col-9">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat laudantium autem optio impedit illum non repudiandae, rerum quam doloremque, nobis nisi deserunt itaque.
+</div>
+<div class="col-3">
+<img src="tanuj.png" />
+<small class="text-muted">
+<br />
+<b>Brinda Gupta</b><br />
+CSE '24
+</small>
+</div>
+</div>
+<div class="row align-items-center p-1">
+<div class="col-3">
+<img src="aditya.jpeg" />
+<small class="text-muted">
+<br />
+<b>Aditya Jha</b><br />
+CSE '24
+</small>
+</div>
+<div class="col-9">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat laudantium autem optio impedit illum non repudiandae, rerum quam doloremque, nobis nisi deserunt itaque.
+</div>
+</div>
+<div class="row align-items-center p-1">
+<div class="col-9">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat laudantium autem optio impedit illum non repudiandae, rerum quam doloremque, nobis nisi deserunt itaque.
+</div>
+<div class="col-3">
+<img src="tanuj.png" />
+<small class="text-muted">
+<br />
+<b>Arpit Singh</b><br />
+CSE '24
+</small>
+</div>
+</div>
+<div class="row align-items-center p-1">
+<div class="col-3">
+<img src="tanuj.png" />
+<small class="text-muted">
+ <br/>
+<b>Tanuj Raghav</b><br />
+CSE '24
+</small>
+</div>
+<div class="col-9">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat laudantium autem optio impedit illum non repudiandae, rerum quam doloremque, nobis nisi deserunt itaque.
+</div>
+</div>
+<div class="row align-items-center p-1">
+<div class="col-9">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat laudantium autem optio impedit illum non repudiandae, rerum quam doloremque, nobis nisi deserunt itaque.
+</div>
+<div class="col-3">
+<img src="tanuj.png" />
+<small class="text-muted">
+<br/>
+<b>Ajay K. Yadav</b><br />
+CSE '24
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
